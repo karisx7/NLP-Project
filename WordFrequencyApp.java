@@ -49,19 +49,32 @@ private ArrayList<Integer> counts;
 * @return: N/A. There is no return value for this method
 */
 public void countWords(String input) {
-  String[] words = input.split(" "); // splits at every word
-  for (int i = 0; i < words.length; i++) { // for every word in words
-    String currentWord = words[i]; // finds the current word in words
-    int pos = foundWords.indexOf(currentWord); // Used to see if its in the foundWords ArrayList
-    if (pos == -1) { // if its not already in the list
-      foundWords.add(currentWord); // add the word to the foundWords list
-      counts.add(1); // one for the count of that word
-    } else { // if its already in the list
-      int newCount = counts.get(pos) + 1; // add one to the count
-      counts.set(pos, newCount); // set the number at that position to that number + 1;
+   int space = input.indexOf(" "); // finds the index of the space
+   while (space != -1) { // while there is a space
+    String word = input.substring(0, space); // the word goes from the start of the list to that space
+    int position = foundWords.indexOf(word); // what index or position "word" is at
+     if (position == -1) { // if that position doesn't exists
+      foundWords.add(word); // add the word to it
+      counts.add(1); // add one to count to mark its presence
+      } else { // otherwise else
+      counts.set(position, counts.get(position) + 1); // add one to the count already declared for that word
+    }
+    input = input.substring(space + 1); // starts input at the index one past the space
+    space = input.indexOf(" "); // finds the next space
+   }
+
+  // this part is used to find the last word with the same process
+  String word = input;
+  int position = foundWords.indexOf(word);
+
+  if (position == -1) {
+    foundWords.add(word);
+    counts.add(1);
+
+   } else {
+     counts.set(position, counts.get(position) + 1);
     }
   }
-}
 
 /**
 * Sorts the text within the ArrayLists by descending order

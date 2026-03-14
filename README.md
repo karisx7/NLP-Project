@@ -25,3 +25,7 @@ Use your knowledge of object-oriented programming, ArrayLists, the String class,
 ## Project Description
 
 The goal of our application is to find the most frequent words within a user's inputted text. Word frequency programs are used for a multitude of purposes, spanning from identify core themes to searching for repetitive words. Therefore, since we didn't want to restrict what text the computer analyzes, we decided to use the text that the user inputs rather than a text file. When the application is run, the console asks the user for a sentence to put in. When it is put in, it is run through the program and it returns the frequency of each word in the sentence.
+
+## NLP Techniques
+
+The NLP technique that we implemented in our project was word frequency analysis. The countWords(String input) method uses the indexOf() and substring() method to separate the sentence into individual words. It then loops through the words and counts how many times each word appears using the foundWords and counts ArrayLists. We also use the sortByFrequency() and printSummary() methods to display the results so that the most frequently used words appear first.
